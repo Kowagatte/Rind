@@ -37,7 +37,12 @@ func _physics_process(_delta):
 	# moving left
 	elif velocity.x < 0:
 		sprite.play("walk_left")
-	# not moving horizontally
+	# moving down
+	elif velocity.x == 0 and velocity.y > 0:
+		sprite.play("walk_down")
+	elif velocity.x == 0 and velocity.y < 0:
+		sprite.play("walk_up", true)
+	# idle
 	elif velocity.x == 0:
 		sprite.play("idle")
 	
